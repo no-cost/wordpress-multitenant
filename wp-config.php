@@ -19,7 +19,7 @@
  */
 
 # read json config
-$config = json_decode(file_get_contents('/etc/config.json'), true);
+$config = json_decode(file_get_contents(__DIR__ . '/etc/config.json'), true);
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
