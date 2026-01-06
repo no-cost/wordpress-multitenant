@@ -51,7 +51,7 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-require_once 'secrets.php';
+require_once __DIR__ . '/secrets.php';
 
 /**#@-*/
 
