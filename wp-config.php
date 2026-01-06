@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The base configuration for WordPress
  *
@@ -23,22 +24,22 @@ $config = json_decode(file_get_contents(__DIR__ . '/../../etc/config.json'), tru
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', $config['database']['database'] );
+define('DB_NAME', $config['database']['database']);
 
 /** Database username */
-define( 'DB_USER', $config['database']['username'] );
+define('DB_USER', $config['database']['username']);
 
 /** Database password */
-define( 'DB_PASSWORD', $config['database']['password'] );
+define('DB_PASSWORD', $config['database']['password']);
 
 /** Database hostname */
-define( 'DB_HOST', $config['database']['host'] );
+define('DB_HOST', $config['database']['host']);
 
 /** Database charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
+define('DB_CHARSET', 'utf8mb4');
 
 /** The database collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define('DB_COLLATE', '');
 
 /**#@+
  * Authentication unique keys and salts.
@@ -81,7 +82,8 @@ $table_prefix = 'wp_';
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', false );
+define('WP_DEBUG', $config["debug"]);
+define('WP_DEBUG_DISPLAY', $config["debug"]);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -90,8 +92,8 @@ define( 'WP_DEBUG', false );
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+if (! defined('ABSPATH')) {
+	define('ABSPATH', __DIR__ . '/');
 }
 
 /** Sets up WordPress vars and included files. */
