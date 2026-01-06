@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../secrets.php';
+require_once __DIR__ . '/../../secrets.php';
 
 add_action('phpmailer_init', function($phpmailer) {
     $phpmailer->isSMTP();
