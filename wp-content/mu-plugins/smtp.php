@@ -13,6 +13,7 @@ add_action('phpmailer_init', function($phpmailer) use ($main_domain) {
     }
 
     $site_host = parse_url(get_site_url(), PHP_URL_HOST);
-    $phpmailer->From = "noreply+{$site_host}@{$main_domain}";
-    $phpmailer->FromName = get_bloginfo('name');
+    $from_email = "noreply+{$site_host}@{$main_domain}";
+    $from_name = get_bloginfo('name');
+    $phpmailer->setFrom($from_email, $from_name);
 });
