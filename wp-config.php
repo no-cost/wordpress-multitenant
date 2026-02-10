@@ -84,6 +84,7 @@ $table_prefix = 'wp_';
  */
 define('WP_DEBUG', $config["debug"]);
 define('WP_DEBUG_DISPLAY', $config["debug"]);
+define('WP_DISABLE_FATAL_ERROR_HANDLER', $config["debug"]);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
