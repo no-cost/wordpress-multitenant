@@ -87,7 +87,11 @@ define('WP_DEBUG_DISPLAY', $config["debug"]);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-
+# disable all self-update and file modification capabilities
+define('AUTOMATIC_UPDATER_DISABLED', true);
+define('WP_AUTO_UPDATE_CORE', false);
+define('DISALLOW_FILE_MODS', true);
+define('DISALLOW_FILE_EDIT', true);
 
 /* That's all, stop editing! Happy publishing. */
 
