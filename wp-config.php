@@ -93,6 +93,11 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 define('WP_AUTO_UPDATE_CORE', false);
 define('DISALLOW_FILE_MODS', true);
 define('DISALLOW_FILE_EDIT', true);
+// https://developer.wordpress.org/reference/functions/get_filesystem_method/
+// problem: bind mounts are owned by www-data, which makes WordPress think it can't write
+// robots.txt, llms.txt, etc. from SEO plugin, but it actually can
+// this fix disables the FS perm checking and just performs read/write immediately
+define('FS_METHOD', 'direct');
 
 /* That's all, stop editing! Happy publishing. */
 
