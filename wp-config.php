@@ -97,6 +97,7 @@ define('DISALLOW_FILE_EDIT', true);
 // problem: bind mounts are owned by www-data, which makes WordPress think it can't write
 // robots.txt, llms.txt, etc. from SEO plugin, but it actually can
 // this fix disables the FS perm checking and just performs read/write immediately
+// since the web process is running as the tenant user, files will always have correct perms
 define('FS_METHOD', 'direct');
 
 /* That's all, stop editing! Happy publishing. */
