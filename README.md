@@ -2,7 +2,7 @@
 
 Repository for WordPress multitenant setup for [no-cost.site](https://no-cost.site).
 
-## Local dev
+## Local dev
 
 To install updates, plugins, locales etc. locally:
 
