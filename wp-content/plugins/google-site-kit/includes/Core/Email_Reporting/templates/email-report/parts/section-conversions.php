@@ -25,7 +25,7 @@ $section_parts = $section['section_parts'];
 		<td style="background-color: #FFFFFF; border-radius: 16px; padding: 16px;">
 			<?php
 			// Render section header.
-			$icon_url = $get_asset_url( 'icon-' . esc_html( $section_icon ) . '.png' );
+			$icon_url = $get_asset_url( 'icon-' . esc_html( $section_icon ) );
 			$render_part(
 				'section-header',
 				array(
@@ -42,7 +42,7 @@ $section_parts = $section['section_parts'];
 					<td style="font-size:12px; line-height:16px; font-weight:500; color:#6C726E;">
 						<?php echo esc_html( $section_parts['total_conversion_events']['data']['label'] ); ?>
 					</td>
-					<td width="110" style="font-size:12px; line-height:16px; font-weight:500; color:#6C726E; text-align: right; width: 110px;">
+					<td class="subtitle" width="110" style="font-size:12px; line-height:16px; font-weight:500; color:#6C726E; text-align: right; width: 110px;">
 						<?php echo esc_html( $section_parts['total_conversion_events']['data']['change_context'] ); ?>
 					</td>
 				</tr>

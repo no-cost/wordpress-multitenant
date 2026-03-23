@@ -29,7 +29,7 @@ msgstr "Toutes les 12 heures"
 
 #: framework/premium/extensions/woocommerce-extra/features/cart-reserved-timer/feature.php:417
 msgid "<p><strong>🔥 Hurry up! Your selected items are reserved for {time} minutes.</strong></p>"
-msgstr "<p><strong>🔥 Dépêchez-vous ! Les articles que vous avez sélectionnés sont réserv��s pendant {time} minutes.</strong></p>"
+msgstr "<p><strong>🔥 Dépêchez-vous ! Les articles que vous avez sélectionnés sont réservés pendant {time} minutes.</strong></p>"
 
 #: framework/premium/extensions/woocommerce-extra/features/cart-reserved-timer/options.php:28
 msgid "Countdown Duration"
@@ -1211,7 +1211,7 @@ msgstr "4 étoiles"
 #: framework/premium/extensions/woocommerce-extra/features/filters/filter-types/rating.php:120
 #: framework/premium/extensions/woocommerce-extra/static/js/blocks/woocommerce-filters/rating-filter/Preview.js:25
 msgid "5 stars"
-msgstr "5 étoiles"
+msgstr "5 ��toiles"
 
 #: framework/premium/extensions/woocommerce-extra/features/filters/filter-types/status.php:147
 msgid "On sale"

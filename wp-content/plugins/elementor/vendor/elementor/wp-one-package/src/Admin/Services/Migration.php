@@ -7,6 +7,7 @@ use ElementorOne\Admin\Components\Fields;
 use ElementorOne\Admin\Exceptions\MigrationException;
 use ElementorOne\Admin\Helpers\Utils;
 use ElementorOne\Common\SupportedPlugins;
+use ElementorOne\Connect\Classes\GrantTypes;
 use ElementorOne\Connect\Facade;
 use ElementorOne\Logger;
 
@@ -50,7 +51,10 @@ class Migration {
 	private function __construct() {
 		$this->logger = new Logger( self::class );
 
+		add_filter( 'elementor_pro/license/api/use_home_url', [ $this, 'filter_license_api_use_home_url' ] );
+
 		add_action( 'elementor_one/get_connect_instance', [ $this, 'get_migrated_instance' ], 10, 3 );
+		add_action( 'elementor_one/elementor_one_switched_domain', [ $this, 'after_switch_domain' ] );
 		add_action( 'elementor_one/elementor_one_before_disconnect', [ $this, 'on_disconnect' ] );
 		add_action( 'elementor_one/elementor_one_connected', [ $this, 'on_connect' ] );
 		add_action( 'activated_plugin', [ $this, 'handle_plugin_activation' ], 10, 1 );
@@ -226,7 +230,10 @@ class Migration {
 
 		switch ( $plugin_slug ) {
 			case SupportedPlugins::ELEMENTOR:
-				self::update_editor_data( Editor::CONNECT_APP_LIBRARY );
+				$is_connected = (bool) Editor::instance()->get_site_owner_connect_data();
+				if ( ! $is_connected ) {
+					self::update_editor_data( Editor::CONNECT_APP_LIBRARY );
+				}
 				break;
 			case SupportedPlugins::ELEMENTOR_PRO:
 				$is_connected = (bool) Editor::get_active_license_key();
@@ -235,12 +242,16 @@ class Migration {
 				}
 				self::update_editor_data( Editor::CONNECT_APP_ACTIVATE, true );
 				break;
+			case SupportedPlugins::MANAGE:
+				// Do nothing with the existing manage instance
+				break;
 			default:
 				$facade = Facade::get( $plugin_slug );
 				if ( ! $facade ) {
 					throw new MigrationException( 'Plugin version not supported.', \WP_Http::CONFLICT );
 				}
-				$is_connected = $facade->utils()->is_connected();
+				$is_using_original_instance = $facade->get_config( 'plugin_slug' ) === $plugin_slug;
+				$is_connected = $facade->utils()->is_connected() && $is_using_original_instance;
 				if ( $is_connected ) {
 					if ( ! $force ) {
 						throw new MigrationException( 'Plugin is already connected.', \WP_Http::UNPROCESSABLE_ENTITY );
@@ -358,5 +369,39 @@ class Migration {
 
 		$facade = Facade::get( $plugin_slug );
 		return $facade ? $facade->get_config( 'app_prefix' ) : $plugin_slug;
+	}
+
+	/**
+	 * Handle domain switch for migrated Elementor Pro
+	 *
+	 * When a site's domain changes, we need to renew the access token
+	 * and reset the editor activation state to ensure proper connectivity.
+	 *
+	 * @param Facade $facade The elementor-one facade instance
+	 * @return void
+	 */
+	public function after_switch_domain( Facade $facade ): void {
+		if ( ! self::is_migrated( SupportedPlugins::ELEMENTOR_PRO ) ) {
+			return;
+		}
+
+		try {
+			$facade->service()->renew_access_token( GrantTypes::REFRESH_TOKEN );
+			self::update_editor_data( Editor::CONNECT_APP_ACTIVATE, true );
+		} catch ( \Throwable $th ) {
+			$this->logger->error( $th->getMessage() );
+		}
+	}
+
+	/**
+	 * Filter the license API use home URL to use the site URL instead of the home URL
+	 * @param bool $use_home_url
+	 * @return bool
+	 */
+	public function filter_license_api_use_home_url( bool $use_home_url ): bool {
+		if ( self::is_migrated( SupportedPlugins::ELEMENTOR_PRO ) ) {
+			return false;
+		}
+		return $use_home_url;
 	}
 }

@@ -45,7 +45,6 @@ use Google\Site_Kit\Core\Tags\Guards\Tag_Verify_Guard;
 use Google\Site_Kit\Core\Tracking\Feature_Metrics_Trait;
 use Google\Site_Kit\Core\Tracking\Provides_Feature_Metrics;
 use Google\Site_Kit\Core\Util\Block_Support;
-use Google\Site_Kit\Core\Util\Feature_Flags;
 use Google\Site_Kit\Core\Util\Method_Proxy_Trait;
 use Google\Site_Kit\Core\Util\URL;
 use Google\Site_Kit\Modules\Reader_Revenue_Manager\Admin_Post_List;
@@ -121,6 +120,11 @@ final class Reader_Revenue_Manager extends Module implements Module_With_Scopes,
 	const PRODUCT_ID_NOTIFICATIONS = array(
 		'rrm-product-id-contributions-notification',
 		'rrm-product-id-subscriptions-notification',
+	);
+
+	const POLICY_VIOLATION_NOTIFICATIONS = array(
+		'rrm-policy-violation-moderate-high-notification',
+		'rrm-policy-violation-extreme-notification',
 	);
 
 	/**
@@ -204,13 +208,17 @@ final class Reader_Revenue_Manager extends Module implements Module_With_Scopes,
 		// Reader Revenue Manager tag placement logic.
 		add_action( 'template_redirect', array( $this, 'register_tag' ) );
 
-		// If the publication ID changes, clear the dismissed state for product ID notifications.
+		// If the publication ID changes, clear the dismissed state for notifications.
 		$this->get_settings()->on_change(
 			function ( $old_value, $new_value ) {
 				if ( $old_value['publicationID'] !== $new_value['publicationID'] ) {
 					$dismissed_items = new Dismissed_Items( $this->user_options );
 
 					foreach ( self::PRODUCT_ID_NOTIFICATIONS as $notification ) {
+						$dismissed_items->remove( $notification );
+					}
+
+					foreach ( self::POLICY_VIOLATION_NOTIFICATIONS as $notification ) {
 						$dismissed_items->remove( $notification );
 					}
 				}
@@ -805,7 +813,7 @@ final class Reader_Revenue_Manager extends Module implements Module_With_Scopes,
 			);
 		}
 
-		if ( Feature_Flags::enabled( 'rrmPolicyViolations' ) && isset( $settings['contentPolicyStatus'] ) ) {
+		if ( isset( $settings['contentPolicyStatus'] ) ) {
 			$content_policy_status = (array) $settings['contentPolicyStatus'];
 			$content_policy_state  = $content_policy_status['contentPolicyState'] ?? '';
 

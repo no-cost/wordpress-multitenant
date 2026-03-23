@@ -5,6 +5,12 @@ namespace Blocksy\Editor\Blocks;
 class Query {
 	private $current_wp_query = null;
 
+	private function maybe_enqueue_pagination_styles() {
+		if (wp_style_is('ct-pagination-styles', 'registered')) {
+			wp_enqueue_style('ct-pagination-styles');
+		}
+	}
+
 	public function __construct() {
 		add_action('wp_ajax_blocksy_get_posts_block_data', function () {
 			if (! current_user_can('edit_posts')) {
@@ -397,6 +403,10 @@ class Query {
 
 					$this->current_wp_query = $query;
 
+					if ($is_slideshow_layout) {
+						wp_enqueue_style('ct-flexy-styles');
+					}
+
 					while ($query->have_posts()) {
 						$query->the_post();
 
@@ -529,6 +539,8 @@ class Query {
 						&&
 						! $is_slideshow_layout
 					) {
+						$this->maybe_enqueue_pagination_styles();
+
 						$prefix = self::get_prefix_for($block->context);
 
 						$pagination_data = $this->get_pagination_descriptor($block->context);
@@ -600,7 +612,7 @@ class Query {
 			if (
 				is_string($process_value)
 				&&
-				str_contains($process_value, 'var:preset|spacing|')
+				strpos($process_value, 'var:preset|spacing|') !== false
 			) {
 				$index_to_splice = strrpos($process_value, '|') + 1;
 				$slug            = _wp_to_kebab_case(substr($process_value, $index_to_splice));
@@ -699,6 +711,18 @@ class Query {
 		$this->current_wp_query = $query;
 
 		ob_start();
+
+		if (
+			$attributes['has_pagination'] === 'yes'
+			&&
+			$attributes['has_slideshow'] !== 'yes'
+		) {
+			$this->maybe_enqueue_pagination_styles();
+		}
+
+		if ($attributes['has_slideshow'] === 'yes') {
+			wp_enqueue_style('ct-flexy-styles');
+		}
 
 		blocksy_render_archive_cards([
 			'prefix' => $prefix,

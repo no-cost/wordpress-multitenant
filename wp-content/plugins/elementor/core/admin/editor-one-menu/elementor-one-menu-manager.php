@@ -196,6 +196,7 @@ class Elementor_One_Menu_Manager {
 	}
 
 	public function hide_old_elementor_menu(): void {
+		$this->remove_elementor_separator();
 		?>
 		<style type="text/css">
 			#toplevel_page_elementor {
@@ -203,6 +204,17 @@ class Elementor_One_Menu_Manager {
 			}
 		</style>
 		<?php
+	}
+
+	private function remove_elementor_separator(): void {
+		global $menu;
+
+		foreach ( $menu as $key => $item ) {
+			if ( isset( $item[2] ) && 'separator-elementor' === $item[2] ) {
+				unset( $menu[ $key ] );
+				break;
+			}
+		}
 	}
 
 	public function register_flyout_items_as_hidden_submenus(): void {

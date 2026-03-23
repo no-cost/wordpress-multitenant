@@ -5,7 +5,7 @@ Requires PHP: 7.0
 Tested up to: 6.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 2.1.27
+Stable tag: 2.1.35
 
 The official companion plugin for Blocksy theme, packed with starter sites, extra features, and integrations.
 
@@ -67,6 +67,34 @@ Program. The Patchstack team help validate, triage and handle any security
 vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/blocksy-companion)
 
 == Changelog ==
+2.1.35: 2026-03-12
+- Improvement: Make the assets URL to show the correct plugin version
+
+2.1.34: 2026-03-06
+- Improvement: Account header element - small accessibility improvement
+- Fix: Demo importer - patch transparent conditions post IDs in install finish step
+
+2.1.33: 2026-03-05
+- Improvement: Advanced posts block - smarter output of markup attributes when slider mode is enabled
+- Improvement: Starter sites - ensure post IDs are referenced correctly in transparent header conditions after starter site install
+
+2.1.32: 2026-02-27
+- Improvement: Advanced posts block - make sure grid styles are no applied when slider mode is enabled
+- Improvement: Newsletter Subscribe - use real user agent for MailerLite API requests
+
+2.1.31: 2026-02-26
+- Improvement: Newsletter extension - better compatibility with MailChimp provider
+
+2.1.30: 2026-02-20
+- Improvement: Newsletter extension - apply the "double opt-in" functionality for Klaviyo and Mailerlite integration
+
+2.1.29: 2026-02-18
+- Improvement: Newsletter extension - correctly apply the "double opt-in" feature for Mailchimp integration
+
+2.1.28: 2026-02-12
+- Improvement: Product Reviews - add "address" field option for "Local Business" entity type
+- Improvement: Starter sites importer - more reliable way of installing Elementor starter sites
+
 2.1.27: 2026-01-30
 - Improvement: Demo importer - correctly export and import ACF custom taxonomies
 - Improvement: Dynamic data image - make sure cover type styles are loaded on demand

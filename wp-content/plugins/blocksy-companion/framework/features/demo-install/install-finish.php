@@ -84,6 +84,7 @@ class DemoInstallFinalActions {
 		$this->update_counts_for_all_terms();
 
 		$this->patch_attachment_ids_in_mods();
+		$this->patch_header_conditions();
 		$this->patch_nav_menu_locations();
 
 		// Clean up duplicate menu items that may have been created during chunked imports
@@ -380,6 +381,19 @@ class DemoInstallFinalActions {
 							$requestsPayload
 						);
 					}
+
+					if (
+						! isset($section['settings']['transparent_conditions'])
+						||
+						! is_array($section['settings']['transparent_conditions'])
+					) {
+						continue;
+					}
+
+					$new_val['sections'][$section_index]['settings']['transparent_conditions'] = $this->patch_transparent_conditions(
+						$section['settings']['transparent_conditions'],
+						$requestsPayload['processed_posts']
+					);
 				}
 
 				set_theme_mod($key, $new_val);
@@ -518,6 +532,60 @@ class DemoInstallFinalActions {
 		}
 
 		return $array;
+	}
+
+	public function patch_header_conditions() {
+		$body = json_decode(file_get_contents('php://input'), true);
+
+		if (! $body) {
+			return;
+		}
+
+		$requestsPayload = [];
+
+		if (isset($body['requestsPayload'])) {
+			$requestsPayload = $body['requestsPayload'];
+		}
+
+		if (! isset($requestsPayload['processed_posts'])) {
+			return;
+		}
+
+		Plugin::instance()->header->patch_conditions(
+			$requestsPayload['processed_posts']
+		);
+	}
+
+	public function patch_transparent_conditions($transparent_conditions, $processed_posts) {
+		$has_relation = isset($transparent_conditions['relation']);
+
+		$conditions_list = $has_relation
+			? $transparent_conditions['conditions']
+			: $transparent_conditions;
+
+		foreach ($conditions_list as $cond_index => $single_condition) {
+			if (! is_array($single_condition)) {
+				continue;
+			}
+
+			if (
+				isset($single_condition['payload']['post_id'])
+				&&
+				isset($processed_posts[intval($single_condition['payload']['post_id'])])
+			) {
+				$patched_id = intval(
+					$processed_posts[intval($single_condition['payload']['post_id'])]
+				);
+
+				if ($has_relation) {
+					$transparent_conditions['conditions'][$cond_index]['payload']['post_id'] = $patched_id;
+				} else {
+					$transparent_conditions[$cond_index]['payload']['post_id'] = $patched_id;
+				}
+			}
+		}
+
+		return $transparent_conditions;
 	}
 
 	public function patch_nav_menu_locations() {
