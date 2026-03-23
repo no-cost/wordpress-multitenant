@@ -21,6 +21,7 @@
 
 # read json config
 $config = json_decode(file_get_contents(__DIR__ . '/../../etc/config.json'), true);
+$wp = $config['wordpress'] ?? [];
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -85,6 +86,7 @@ $table_prefix = 'wp_';
 define('WP_DEBUG', $config["debug"]);
 define('WP_DEBUG_DISPLAY', $config["debug"]);
 define('WP_DISABLE_FATAL_ERROR_HANDLER', $config["debug"]);
+define('WP_CACHE', $wp["cache"] ?? true);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
