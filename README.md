@@ -8,7 +8,7 @@ To install updates, plugins, locales etc. locally:
 
 - Download [wp-cli](https://make.wordpress.org/cli/handbook/guides/installing/)
 - Ensure you have a local MariaDB instance running
-- Create an empty dummy database
+- Create an empty dummy database (save credentials in `../../etc/config.json` locally)
 - Install the dummy DB (just so that wp-cli can connect to it and see the schema):
 
 ```bash
@@ -22,6 +22,20 @@ wp core install \
 ```
 
 - Use wp-cli normally
+
+## Local `../../etc/config.json` (e.g. for XAMPP on Mac)
+
+```json
+{
+    "database": {
+        "database": "nocost_tenant",
+        "username": "root",
+        "password": "",
+        "host": "127.0.0.1"
+    },
+    "debug": true
+}
+```
 
 ## Useful cmds
 
