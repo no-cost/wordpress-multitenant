@@ -1,0 +1,26 @@
+#LknPaymentPixForWoocommerceRedePixFields {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#LknPaymentPixForWoocommerceRedePixFields svg {
+    width: 60px;
+    margin-left: 10px;
+}
+
+#payment-logo-rede {
+    height: 30px;
+    margin-left: 0px !important;
+}
+
+.LknPaymentPixForWoocommerceRedePixFields {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LknPaymentPixForWoocommerceRedePixFields svg {
+    width: 60px;
+    margin-left: 10px;
+}

@@ -1,0 +1,142 @@
+# Payment Gateway Pix for Woocommerce tradução pt_BR
+
+msgid "Enable/Disable"
+msgstr "Ativar/Desativar"
+
+msgid "Enables payment with Pix"
+msgstr "Permite pagamento com Pix"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "This controls the title which the user sees during checkout."
+msgstr "Isso controla o título que o usuário vê durante o checkout."
+
+msgid "Pay with the Pix QR Code"
+msgstr "Pague com o código QR do Pix"
+
+msgid "See logs"
+msgstr "Ver logs"
+
+msgid "PIX key is not configured. Please set the PIX key in the plugin settings."
+msgstr "Chave PIX não está configurada. Por favor, defina a chave PIX nas configurações do plugin."
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "General settings"
+msgstr "Configurações gerais"
+
+msgid "Pay for your purchase with pix using Pix QR Code"
+msgstr "Pague sua compra com Pix utilizando o código QR do Pix"
+
+msgid "Enables and configures payments with Pix"
+msgstr "Habilita e configura pagamentos com Pix"
+
+msgid "Key Type"
+msgstr "Tipo de Chave"
+
+msgid "Tipo de Chave"
+msgstr "Tipo de Chave"
+
+msgid "Pix Key"
+msgstr "Chave Pix"
+
+msgid "Beneficiary Name"
+msgstr "Nome do Beneficiário"
+
+msgid "Beneficiary City"
+msgstr "Cidade do Beneficiário"
+
+msgid "Debug"
+msgstr "Depuração"
+
+msgid "Enable debug logs."
+msgstr "Habilitar registros de depuração."
+
+msgid "Phone"
+msgstr "Telefone"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "This field controls the title which the user sees during checkout."
+msgstr "Este campo controla o título que o usuário vê durante o checkout."
+
+msgid "Select the type of PIX key."
+msgstr "Selecione o tipo de chave PIX."
+
+msgid "Enter the PIX key to be used for donations."
+msgstr "Digite a chave PIX para ser usada para doações."
+
+msgid "Enter the name of the key beneficiary."
+msgstr "Digite o nome do beneficiário da chave."
+
+msgid "Enter the city of the key beneficiary."
+msgstr "Digite a cidade do beneficiário da chave."
+
+msgid "Please enter a valid CPF or CNPJ."
+msgstr "Por favor, insira um CPF ou CNPJ válido."
+
+msgid "API key is not configured. Please set the API key in the plugin settings."
+msgstr "A chave da API não está configurada. Por favor, defina a chave da API nas configurações do plugin."
+
+msgid "Pay for your purchase with pix using Pix PagHiper"
+msgstr "Pague sua compra com Pix usando o Pix PagHiper"
+
+msgid "PagHiper API Key"
+msgstr "Chave da API PagHiper"
+
+msgid "Enter your PagHiper API key."
+msgstr "Digite sua chave da API PagHiper."
+
+msgid "PagHiper API Token"
+msgstr "Token da API PagHiper"
+
+msgid "Enter your PagHiper API Token."
+msgstr "Digite seu token da API PagHiper."
+
+msgid "Pix validity in days"
+msgstr "Validade do Pix em dias"
+
+msgid "Enter the validity of the pix in days. By default, the validity lasts until the end of the day."
+msgstr "Digite a validade do Pix em dias. Por padrão, a validade dura até o final do dia."
+
+msgid "Random key"
+msgstr "Chave aleatória"
+
+msgid "Pay with the Pix PagHiper"
+msgstr "Pague com o Pix PagHiper"
+
+msgid "Enable automatic payment confirmation through a PagHiper account"
+msgstr "Habilitar o recebimento com confirmação de pagamento automática através de uma conta PagHiper"
+
+msgid "Minimum value to generate Pix"
+msgstr "Valor mínimo para gerar Pix"
+
+msgid "Enter the minimum purchase value to generate the pix"
+msgstr "Digite o valor mínimo da compra para gerar o pix"
+
+msgid "Hide Pix after payment"
+msgstr "Ocultar Pix após pagamento"
+
+msgid "Hide Pix QRCode for logged in customers with processing or completed order"
+msgstr "Ocultar QRCode Pix para clientes logado com pedido processando ou concluido"
+
+msgid "Enable this option to hide the Pix QR Code in my customer account that is processing or completed."
+msgstr "Ative esta opção para ocultar o QR Code do Pix no minha conta do cliente que estiver com pedido processando ou concluído."
+
+msgid "Download QR Code"
+msgstr "Baixar QR Code"
+
+msgid "Share"
+msgstr "Compartilhar"
+
+msgid "Additional Resources"
+msgstr "Recursos adicionais"
+
+msgid "The QR code will only be valid if the key has been registered with a financial institution (Bank)."
+msgstr "O QRCode só será válido se a chave foi definida em uma instituição financeira (Banco)."
+
+msgid "Copied!"
+msgstr "Copiado!"

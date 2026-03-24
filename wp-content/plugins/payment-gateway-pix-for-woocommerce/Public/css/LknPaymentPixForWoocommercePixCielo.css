@@ -1,0 +1,301 @@
+.pixforwoo-qrcode-content-cielo {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    flex-direction: row;
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+    box-shadow: -2px 2px 4px #E6E6E6;
+    padding: 20px;
+    height: min-content;
+    box-sizing: border-box;
+    margin: 50px 0px;
+    background-color: #fff;
+}
+
+.pixforwoo-qrcode-section-cielo {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    align-self: center;
+    width: 450px;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+.pixforwoo-qrcode-title-container-cielo {
+    display: flex;
+    align-items: start;
+    width: 100%;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.pixforwoo-qrcode-title-text-cielo {
+    font-size: 20px;
+    color: black;
+}
+
+.pixforwoo-basic-qrcode-title-text-cielo {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+}
+
+.pixforwoo-qrcode-instructions-list-cielo {
+    padding-right: 20px;
+}
+
+.pixforwoo-qrcode-instructions-cielo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    box-sizing: border-box;
+}
+
+.pixforwoo-basic-qrcode-instructions-cielo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    box-sizing: border-box;
+    color: #838383;
+}
+
+.pixforwoo-qrcode-important-notice-cielo {
+    text-align: justify;
+}
+
+.pixforwoo-qrcode-check-container-cielo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.pixforwoo-qrcode-check-text-cielo {
+    font-size: 12px;
+    text-align: center;
+    color: #838383;
+}
+
+#pixforwoo-qrcode-timer-cielo {
+    font-size: 48px;
+    color: #3A3A3A;
+    text-align: center;
+}
+
+.pixforwoo-qrcode-payment-check-cielo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.pixforwoo-qrcode-payment-check-btn-cielo {
+    display: flex;
+    width: 350px;
+    height: 50px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: #D9D9D9;
+    color: #FFF;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin-top: 16px;
+    transition: background-color 0.5s ease;
+}
+
+.pixforwoo-qrcode-payment-check-btn-cielo[disabled]:hover {
+    background-color: #D9D9D9;
+}
+
+.pixforwoo-qrcode-payment-check-info-cielo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 350px;
+    font-size: 16px;
+    color: #838383;
+}
+
+.pixforwoo-qrcode-value-container-cielo {
+    display: flex;
+    align-self: start;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.pixforwoo-qrcode-value-title-cielo {
+    font-size: 20px;
+    color: #686868;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pixforwoo-qrcode-value-amount-cielo {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    margin-top: -10px;
+}
+
+.pixforwoo-qrcode-value-date-cielo {
+    font-size: 20px;
+    color: #686868;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.pixforwoo-qrcode-copy-container-cielo {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    border-radius: 8px;
+    height: 50px;
+    overflow: hidden;
+    background-color: #D9D9D9;
+    margin-bottom: 20px;
+}
+
+.pixforwoo-qrcode-copy-input-cielo {
+    width: 100%;
+    height: 32px;
+    background-color: #D9D9D9;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding-left: 10px;
+}
+
+.pixforwoo-qrcode-copy-input-cielo[disabled] {
+    background-color: #D9D9D9 !important;
+}
+
+.pixforwoo-qrcode-copy-btn-cielo {
+    width: 100px !important;
+    height: 100%;
+    background-color: #3A3A3A;
+    font-size: 12px;
+    color: #FFF;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 0px !important;
+    transition: background-color 0.5s ease;
+}
+
+.pixforwoo-qrcode-copy-btn-cielo:hover {
+    background-color: #3A3A3A;
+}
+
+.pixforwoo-qrcode-copy-btn-cielo[disabled] {
+    background-color: #28a428;
+}
+
+.pixforwoo-qrcode-img-cielo {
+    height: auto;
+    width: 350px;
+}
+
+.pixforwoo-qrcode-image-container-cielo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Pix shortcode */
+
+.lknPaymentPixForWoocommerceC6InputContainer-cielo {
+    display: flex;
+    flex-direction: column;
+}
+
+.pix-shortcode-generate-button-cielo {
+    display: flex;
+    width: fit-content;
+    height: 50px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    padding: 0px 40px;
+    background-color: #3A3A3A;
+    color: #FFF;
+    gap: 10px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin-top: 16px;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.pix-shortcode-generate-button-cielo:hover {
+    background-color: #686868;
+}
+
+.pix-shortcode-generate-button-cielo[disabled] {
+    background-color: #D9D9D9;
+    cursor: not-allowed;
+}
+
+/* Pix shortcode button image adjustment */
+.pix-shortcode-generate-button-cielo img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+/* Responsivo */
+@media screen and (max-width: 986px) {
+    .pixforwoo-qrcode-content-cielo {
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 20px 0px;
+    }
+}
+
+@media screen and (max-width: 586px) {
+    .pixforwoo-qrcode-section-cielo {
+        width: 100%;
+        padding: 20px 0px;
+    }
+
+    .pixforwoo-qrcode-title-text-cielo {
+        font-size: 16px;
+    }
+
+    .pixforwoo-qrcode-payment-check-btn-cielo {
+        font-size: 16px;
+    }
+
+    .pixforwoo-qrcode-payment-check-info-cielo {
+        font-size: 14px;
+    }
+
+    .pixforwoo-qrcode-img-cielo {
+        width: 100%;
+    }
+
+    .pixforwoo-qrcode-copy-container-cielo {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .pixforwoo-qrcode-copy-input-cielo {
+        max-width: 288px;
+    }
+}

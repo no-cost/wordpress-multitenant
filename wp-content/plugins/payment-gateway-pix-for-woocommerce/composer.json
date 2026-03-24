@@ -1,0 +1,29 @@
+{
+    "name": "lkn/payment-pix-for-woocommerce",
+    "type": "project",
+    "license": "Proprietary",
+    "autoload": {
+        "psr-4": {
+            "Lkn\\PaymentPixForWoocommerce\\Includes\\": "Includes/",
+            "Lkn\\PaymentPixForWoocommerce\\Admin\\": "Admin/",
+            "Lkn\\PaymentPixForWoocommerce\\PublicView\\": "Public/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Link Nacional",
+            "email": "ticket@linknacional.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phan/phan": "5.4.1"
+    },
+    "require": {
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.lknPaymentPixForWoocommerceC6InputLabel {
+    display: flex !important;
+    gap: 5px; 
+}
+
+.icon-c6-input {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+}
