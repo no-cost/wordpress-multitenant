@@ -1,0 +1,63 @@
+.storekeeper-status {
+    display: flex;
+    align-content: center;
+}
+
+.storekeeper-status .storekeeper-status-success,
+.storekeeper-status .storekeeper-status-warning,
+.storekeeper-status .storekeeper-status-danger,
+.storekeeper-status .storekeeper-status-secondary {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.storekeeper-status .storekeeper-status-success {
+    background: #8cc46e;
+}
+
+.storekeeper-status .storekeeper-status-warning {
+    background: #ffc107;
+}
+
+.storekeeper-status .storekeeper-status-secondary {
+    background: #6c757d;
+}
+
+.storekeeper-status .storekeeper-status-danger {
+    border-radius: 50%;
+    background: #e65e5e;
+    margin-right: 10px;
+}
+
+.storekeeper-pagination {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.storekeeper-page .storekeeper-tab .storekeeper-pagination > * {
+    margin-right: 5px;
+}
+
+.storekeeper-page .storekeeper-tab .storekeeper-apply {
+    margin-top: 10px;
+}
+
+.storekeeper-body.storekeeper-body-body {
+    max-width: 50vw;
+}
+
+.storekeeper-page-storekeeper-logs .storekeeper-tab .search-box {
+    margin-left: auto;
+}
+
+table.table.table-bordered,
+table.table.table-bordered th,
+table.table.table-bordered td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 3px;
+}
