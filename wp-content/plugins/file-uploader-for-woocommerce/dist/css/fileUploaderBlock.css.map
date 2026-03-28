@@ -1,0 +1,1 @@
+{"version":3,"file":"css/fileUploaderBlock.css","mappings":"AAAA,sCAGC,wBAAyB,CADzB,wBAAyB,CADzB,YAGD","sources":["webpack://bsp/./blocks/file-uploader-block/style.css"],"sourcesContent":[".wp-block-your-plugin-my-custom-block {\n\tpadding: 10px;\n\tborder: 2px solid #007cba;\n\tbackground-color: #f9f9f9;\n}"],"names":[],"sourceRoot":""}
